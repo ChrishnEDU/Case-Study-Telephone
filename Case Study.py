@@ -1,56 +1,154 @@
 print("===================CASE STUDY (TELEPHONE)===================")
 print("1. American | 2. Asian | 3. African | 4. European")
 destination = int(input("\nSelect your Region Call Destination: "))
-print("============================================================")
-setday = input("\nIf you are calling in Day type |A| if Night type |B|: ")
-print("============================================================")
 day = input("\nType |X| for Weekdays and |Y| for Weekends: ")
-print("============================================================")
+setday = input("\nIf you are calling in Day type |A| if Night type |B|: ")
 time = int(input("\nHow many Minutes do you want to call?: "))
 
-if day == "X" or "x":
-    if setday == "A" or "a":
-        if destination == 1:
-            cost = time / 3 * 50
-        elif destination == 2:
-            cost = time / 2 * 30
-        elif destination == 3:
-            cost = time / 3 * 40
-        elif destination == 4:
-            cost = time / 2 * 35
-
-    elif setday == "B" or "b":
-        if destination == 1:
-            cost = time / 3 * 45
-        elif destination == 2:
-            cost = time / 2 * 27
-        elif destination == 3:
-            cost = time / 3 * 36
-        elif destination == 4:
-            cost = time / 2 * 30
-
-elif day == "Y" or "y":
-    if setday == "A" or "a":
-        if destination == 1:
-            cost = (time/3) * 40
-        elif destination == 2:
-            cost = (time/2) * 25
-        elif destination == 3:
-            cost = (time/3) * 35
-        elif destination == 4:
-            cost = (time/2) * 20
+match destination:
+    case 1:
+        reg = "American Region"
+        if day == "X" or day == "x":
+            d = "Weekdays"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 50
+                rate = 3
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 45
+                rate = 3
+            else:
+                print("Wrong Time")
+                exit()
         
-    elif setday == "B" or "b":
-        if destination == 1:
-            cost = (time/3) * 38
-        elif destination == 2:
-            cost = (time/2) * 15
-        elif destination == 3:
-            cost = (time/3) * 22
-        elif destination == 4:
-            cost = (time/2) * 19
+        elif day == "Y" or day == "y":
+            d = "Weekends"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 40
+                rate = 3
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 38
+                rate = 3
+            else:
+                print("Wrong Time")
+                exit()
+        
+        else:
+            print("Wrong Day")
+            exit()
+    case 2:
+        reg = "Asian Region"
+        if day == "X" or day == "x":
+            d = "Weekdays"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 30
+                rate = 2
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 27
+                rate = 2
+            else:
+                print("Wrong Time")
+                exit()
+        
+        elif day == "Y" or day == "y":
+            d = "Weekends"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 25
+                rate = 2
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 15
+                rate = 2
+            else:
+                print("Wrong Time")
+                exit()
+        
+        else:
+            print("Wrong Day")
+            exit()
+    case 3:
+        reg = "African Region"
+        if day == "X" or day == "x":
+            d = "Weekdays"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 40
+                rate = 3
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 36
+                rate = 3
+            else:
+                print("Wrong Time")
+                exit()
+        
+        elif day == "Y" or day == "y":
+            d = "Weekends"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 35
+                rate = 3
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 22
+                rate = 3
+            else:
+                print("Wrong Time")
+                exit()
+        
+        else:
+            print("Wrong Day")
+            exit()
+    case 4:
+        reg = "European Region"
+        if day == "X" or day == "x":
+            d = "Weekdays"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 35
+                rate = 2
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 30
+                rate = 2
+            else:
+                print("Wrong Time")
+                exit()
+        
+        elif day == "Y" or day == "y":
+            d = "Weekends"
+            if setday == "A" or setday == "a":
+                st = "Day Time"
+                cost = 20
+                rate = 2
+            elif setday == "B" or setday == "b":
+                st = "Night Time"
+                cost = 19
+                rate = 2
+            else:
+                print("Wrong Time")
+                exit()
+        
+        else:
+            print("Wrong Day")
+            exit()
 
-tot = "{:.2f}".format(cost)
+    case default:
+        print("Invalid Input!")
+        exit()
+
+pen = (time/rate) * cost
+tot = "{:.2f}".format(pen)
+print("============================================================")
+print("Region Code:",reg)
+print("Call Dated:",d)
+print("Call Time:",st)
 print("Call Duration:",time,"minutes")
 print("Call Total Cost:",tot,"pesos")
 print("\n==================S U B M I T T E D  B Y====================")
